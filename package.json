@@ -2,24 +2,44 @@
 	"name": "run-in-powershell",
 	"displayName": "Run in Powershell",
 	"description": "Runs scripts in a new Powershell window outside of VS Code.",
+  "publisher": "tobysmith568",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.46.0"
+		"vscode": "^1.45.1"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:run-in-powershell.helloWorld"
+		"onCommand:run-in-powershell.runInPS"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "run-in-powershell.helloWorld",
-				"title": "Hello World"
+				"command": "run-in-powershell.runInPS",
+				"title": "Run In Powershell",
+				"icon" : {
+					"light": "./icons/terminal-outline.svg",
+					"dark": "./icons/terminal-outline.svg"
+				}
 			}
-		]
+		],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "run-in-powershell.runInPS",
+					"group": "1_powershell",
+					"when": "resourceExtname == .ps1"
+        }
+			],
+			"editor/title": [
+        {
+          "command": "run-in-powershell.runInPS",
+					"when": "resourceExtname == .ps1"
+        }
+      ]
+    }
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -30,7 +50,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.46.0",
+		"@types/vscode": "^1.45.1",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
