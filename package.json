@@ -17,6 +17,16 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "Run in Powershell",
+			"properties": {
+				"runInPowerShell.PowershellCoreLocation": {
+					"type": "string",
+					"default": "",
+					"description": "To use Powershell Core, enter the location of it's exe. Leave it empty to use standard Powershell."
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "run-in-powershell.runInPS",

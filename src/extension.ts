@@ -4,6 +4,8 @@ import { dirname } from "path";
 
 const exec = util.promisify(require("child_process").exec);
 const adminSection: string = "-Verb runAs";
+const powershellCoreSetting: string = "runInPowerShell.PowershellCoreLocation";
+const powershell1: string = "powershell.exe";
 
 type ContextData = {
 	fsPath: string
@@ -45,8 +47,13 @@ export function getFileLocation(contextData?: ContextData): string | undefined {
 
 export async function run(location: string, admin: boolean = false): Promise<void> {
 	const workingDir: string = dirname(location);
+	let powerShellLocation: string | undefined = vscode.workspace.getConfiguration().get(powershellCoreSetting);
 
-	const command: string = `PowerShell -NoProfile -ExecutionPolicy Unrestricted -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -NoExit -ExecutionPolicy Unrestricted -Command cd ${escapeSpaces(workingDir)} ; & ${escapeSpaces(location)}""' ${admin ? adminSection : ""}}"`;
+	if (powerShellLocation === undefined || powerShellLocation.length === 0) {
+		powerShellLocation = powershell1;
+	}
+	
+	const command: string = `"${powerShellLocation}" -NoProfile -ExecutionPolicy Unrestricted -Command "& {Start-Process ${escapeSpaces(powerShellLocation)} -ArgumentList '-NoProfile -NoExit -ExecutionPolicy Unrestricted -Command cd ${escapeSpaces(workingDir)} ; & ${escapeSpaces(location)}""' ${admin ? adminSection : ""}}"`;
 
 	console.log("Running Powershell command:", command);
 
