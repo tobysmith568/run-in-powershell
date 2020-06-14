@@ -1,16 +1,16 @@
 {
 	"name": "run-in-powershell",
 	"displayName": "Run in Powershell",
-	"description": "Runs scripts in a new Powershell window outside of VS Code.",
+	"description": "Runs scripts in a new Powershell terminal outside of VS Code.",
 	"publisher": "tobysmith568",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "GPL-3.0-or-later",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/tobysmith568/Run-in-Powershell"
 	},
 	"engines": {
-		"vscode": "^1.45.1"
+		"vscode": "^1.0.0"
 	},
 	"categories": [
 		"Other"
@@ -20,6 +20,7 @@
 		"onCommand:run-in-powershell.runInPSAdmin"
 	],
 	"main": "./out/extension.js",
+	"icon": "icons/logo.png",
 	"contributes": {
 		"configuration": {
 			"title": "Run in Powershell",
@@ -36,16 +37,16 @@
 				"command": "run-in-powershell.runInPS",
 				"title": "Run In Powershell Externally",
 				"icon": {
-					"light": "./src/icons/ps.svg",
-					"dark": "./src/icons/ps-inverted.svg"
+					"light": "./icons/ps.svg",
+					"dark": "./icons/ps-inverted.svg"
 				}
 			},
 			{
 				"command": "run-in-powershell.runInPSAdmin",
 				"title": "Run In Powershell Externally (Admin)",
 				"icon": {
-					"light": "./src/icons/shield.svg",
-					"dark": "./src/icons/shield-inverted.svg"
+					"light": "./icons/shield.svg",
+					"dark": "./icons/shield-inverted.svg"
 				}
 			}
 		],
@@ -86,7 +87,7 @@
 		"package": "vsce package"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.45.1",
+		"@types/vscode": "^1.0.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
