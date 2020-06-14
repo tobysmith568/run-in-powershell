@@ -21,8 +21,8 @@
 				"command": "run-in-powershell.runInPS",
 				"title": "Run In External Powershell Terminal",
 				"icon" : {
-					"light": "./icons/terminal-outline.svg",
-					"dark": "./icons/terminal-outline.svg"
+					"light": "./src/icons/ps.svg",
+					"dark": "./src/icons/ps-inverted.svg"
 				}
 			}
 		],
