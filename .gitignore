@@ -2,6 +2,8 @@ out
 node_modules
 .vscode-test/
 *.vsix
+*.gif
+**/~`~*.sketch
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,node,code,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,node,code,visualstudiocode
