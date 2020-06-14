@@ -3,7 +3,7 @@
 	"displayName": "Run in Powershell",
 	"description": "Runs scripts in a new Powershell terminal outside of VS Code.",
 	"publisher": "tobysmith568",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"license": "GPL-3.0-or-later",
 	"repository": {
 		"type": "git",
