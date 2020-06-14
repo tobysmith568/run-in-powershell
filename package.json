@@ -19,7 +19,7 @@
 		"commands": [
 			{
 				"command": "run-in-powershell.runInPS",
-				"title": "Run In Powershell",
+				"title": "Run In External Powershell Terminal",
 				"icon" : {
 					"light": "./icons/terminal-outline.svg",
 					"dark": "./icons/terminal-outline.svg"
@@ -37,7 +37,8 @@
 			"editor/title": [
         {
           "command": "run-in-powershell.runInPS",
-					"when": "resourceExtname == .ps1"
+					"when": "resourceExtname == .ps1",
+					"group": "navigation"
         }
       ]
     }
