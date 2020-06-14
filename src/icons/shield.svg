@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-  <desc>Created with Lunacy</desc>
-  <defs>
-    <path d="M0 0L50 0L50 50L0 50L0 0Z" id="path_1" />
-    <clipPath id="mask_1">
-      <use xlink:href="#path_1" />
-    </clipPath>
-  </defs>
-  <g id="Group">
-    <path d="M17.5 0L22.5 1.5L30.5 6.5L36 8.5L35 23L18 44L11.5 41.5L2.5 27.5L0 18L17.5 0Z" transform="translate(7 3)" id="Rectangle" fill="#FFFFFF" stroke="none" />
-    <g id="shield">
-      <path d="M0 0L50 0L50 50L0 50L0 0Z" id="Background" fill="none" stroke="none" />
-      <g clip-path="url(#mask_1)">
-        <path d="M26.14 3.333C29.501 5.521 33.311 8 37 8C37.553 8 38 8.447 38 9L38 16C38 30.484 26.849 46 19 46C12.596 46 3.996 35.67 1.045 24L1.037 24C1.016 23.915 1.007 23.839 0.988 23.757C0.36 21.201 0 18.584 0 16L0 9C0 8.447 0.447 8 1 8C4.689 8 8.499 5.521 11.86 3.333C14.608 1.545 16.981 0 19 0C21.019 0 23.392 1.545 26.14 3.333ZM34.926 24C35.607 21.408 36.003 18.711 36.003 16L36.003 9.953C32.086 9.588 28.365 7.166 25.052 5.01C22.674 3.462 20.428 2 19.003 2L19.003 24L3.07999 24C5.95699 34.952 13.955 44 19.003 44L19.003 24L34.926 24Z" transform="translate(6 2)" id="Shape" fill="#000000" fill-rule="evenodd" stroke="none" />
-      </g>
-    </g>
-  </g>
+<svg width="38px" height="46px" viewBox="0 0 38 46" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <path d="M37 8C33.311 8 29.501 5.521 26.14 3.333C23.392 1.545 21.019 0 19 0C16.981 0 14.608 1.545 11.86 3.333C8.499 5.521 4.689 8 1 8C0.447 8 0 8.447 0 9L0 16C0 18.584 0.36 21.201 0.988 23.757C1.007 23.839 1.016 23.915 1.037 24L1.045 24C3.996 35.67 12.596 46 19 46C26.849 46 38 30.484 38 16L38 9C38 8.447 37.553 8 37 8ZM36.003 16C36.003 18.711 35.607 21.408 34.926 24L19.003 24L19.003 2C20.428 2 22.674 3.462 25.052 5.01C28.365 7.166 32.086 9.588 36.003 9.953L36.003 16ZM19.003 24L19.003 44C13.955 44 5.95702 34.952 3.08002 24L19.003 24Z" id="Shape" fill="#000000" fill-rule="evenodd" stroke="none" />
 </svg>
