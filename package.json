@@ -4,6 +4,7 @@
 	"description": "Runs scripts in a new Powershell window outside of VS Code.",
   "publisher": "tobysmith568",
 	"version": "0.0.1",
+	"license": "GPL-3.0-or-later",
 	"engines": {
 		"vscode": "^1.45.1"
 	},
