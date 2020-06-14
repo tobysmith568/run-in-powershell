@@ -3,7 +3,7 @@
 out/test/**
 src/**
 .gitignore
-vsc-extension-quickstart.md
+LICENSE.md
 **/tsconfig.json
 **/.eslintrc.json
 **/*.map

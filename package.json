@@ -5,6 +5,10 @@
 	"publisher": "tobysmith568",
 	"version": "0.0.1",
 	"license": "GPL-3.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tobysmith568/Run-in-Powershell"
+	},
 	"engines": {
 		"vscode": "^1.45.1"
 	},
@@ -78,7 +82,8 @@
 		"lint": "eslint src --ext ts",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"package": "vsce package"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.45.1",
