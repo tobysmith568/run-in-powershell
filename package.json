@@ -15,6 +15,13 @@
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"powershell",
+		"external",
+		"terminal",
+		"core",
+		"admin"
+	],
 	"activationEvents": [
 		"onCommand:run-in-powershell.runInPS",
 		"onCommand:run-in-powershell.runInPSAdmin"
