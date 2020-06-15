@@ -11,7 +11,11 @@ type ContextData = {
 	fsPath: string
 };
 
+let outputChannel: vscode.OutputChannel;
+
 export function activate(context: vscode.ExtensionContext) {
+	outputChannel = vscode.window.createOutputChannel("Run in Powershell");
+
 	let runInPSDisposable = vscode.commands.registerCommand("run-in-powershell.runInPS",
 						async (data: ContextData) => runInPowershell(data, false));
 
@@ -55,12 +59,12 @@ export async function run(location: string, admin: boolean = false): Promise<voi
 	
 	const command: string = `"${powerShellLocation}" -NoProfile -ExecutionPolicy Unrestricted -Command "& {Start-Process ${escapeSpaces(powerShellLocation)} -ArgumentList '-NoProfile -NoExit -ExecutionPolicy Unrestricted -Command cd ${escapeSpaces(workingDir)} ; & ${escapeSpaces(location)}""' ${admin ? adminSection : ""}}"`;
 
-	console.log("Running Powershell command:", command);
+	outputChannel.appendLine("Running Powershell command: " + command);
 
 	try {
 		await exec(command);
 	} catch (err) {
-		console.error(err);
+		outputChannel.appendLine(JSON.stringify(err));
 		vscode.window.showErrorMessage(JSON.stringify(err));
 	};
 }
