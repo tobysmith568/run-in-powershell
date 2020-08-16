@@ -1,112 +1,113 @@
 {
-	"name": "run-in-powershell",
-	"displayName": "Run in Powershell",
-	"description": "Runs scripts in a new Powershell terminal outside of VS Code.",
-	"publisher": "tobysmith568",
-	"version": "1.0.1",
-	"license": "GPL-3.0-or-later",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/tobysmith568/Run-in-Powershell"
-	},
+  "name": "run-in-powershell",
+  "displayName": "Run in Powershell",
+  "description": "Runs scripts in a new Powershell terminal outside of VS Code.",
+  "publisher": "tobysmith568",
+  "version": "1.1.0",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tobysmith568/Run-in-Powershell"
+  },
   "prettier": "@tobysmith568/prettier-config",
-	"engines": {
-		"vscode": "^1.0.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"keywords": [
-		"powershell",
-		"external",
-		"terminal",
-		"core",
-		"admin"
-	],
-	"activationEvents": [
-		"onCommand:run-in-powershell.runInPS",
-		"onCommand:run-in-powershell.runInPSAdmin"
-	],
-	"main": "./out/extension.js",
-	"icon": "icons/logo.png",
-	"contributes": {
-		"configuration": {
-			"title": "Run in Powershell",
-			"properties": {
-				"runInPowerShell.PowershellCoreLocation": {
-					"type": "string",
-					"default": "",
-					"description": "To use Powershell Core, enter the location of it's exe. Leave it empty to use standard Powershell."
-				}
-			}
-		},
-		"commands": [
-			{
-				"command": "run-in-powershell.runInPS",
-				"title": "Run In Powershell Externally",
-				"icon": {
-					"light": "./icons/ps.svg",
-					"dark": "./icons/ps-inverted.svg"
-				}
-			},
-			{
-				"command": "run-in-powershell.runInPSAdmin",
-				"title": "Run In Powershell Externally (Admin)",
-				"icon": {
-					"light": "./icons/shield.svg",
-					"dark": "./icons/shield-inverted.svg"
-				}
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"command": "run-in-powershell.runInPS",
-					"group": "1_powershell",
-					"when": "resourceExtname == .ps1"
-				},
-				{
-					"command": "run-in-powershell.runInPSAdmin",
-					"group": "1_powershell",
-					"when": "resourceExtname == .ps1"
-				}
-			],
-			"editor/title": [
-				{
-					"command": "run-in-powershell.runInPS",
-					"when": "resourceExtname == .ps1",
-					"group": "navigation"
-				},
-				{
-					"command": "run-in-powershell.runInPSAdmin",
-					"when": "resourceExtname == .ps1",
-					"group": "navigation"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"lint": "eslint src --ext ts",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"test": "node ./out/test/runTest.js",
-		"package": "vsce package"
-	},
-	"devDependencies": {
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "powershell",
+    "external",
+    "terminal",
+    "core",
+    "admin"
+  ],
+  "activationEvents": [
+    "onCommand:run-in-powershell.runInPS",
+    "onCommand:run-in-powershell.runInPSAdmin"
+  ],
+  "main": "./out/extension.js",
+  "icon": "icons/logo.png",
+  "contributes": {
+    "configuration": {
+      "title": "Run in Powershell",
+      "properties": {
+        "runInPowerShell.PowershellCoreLocation": {
+          "type": "string",
+          "default": "",
+          "description": "To use Powershell Core, enter the location of it's exe. Leave it empty to use standard Powershell."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "run-in-powershell.runInPS",
+        "title": "Run In Powershell Externally",
+        "icon": {
+          "light": "./icons/ps.svg",
+          "dark": "./icons/ps-inverted.svg"
+        }
+      },
+      {
+        "command": "run-in-powershell.runInPSAdmin",
+        "title": "Run In Powershell Externally (Admin)",
+        "icon": {
+          "light": "./icons/shield.svg",
+          "dark": "./icons/shield-inverted.svg"
+        }
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "run-in-powershell.runInPS",
+          "group": "1_powershell",
+          "when": "resourceExtname == .ps1"
+        },
+        {
+          "command": "run-in-powershell.runInPSAdmin",
+          "group": "1_powershell",
+          "when": "resourceExtname == .ps1"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "run-in-powershell.runInPS",
+          "when": "resourceExtname == .ps1",
+          "group": "navigation"
+        },
+        {
+          "command": "run-in-powershell.runInPSAdmin",
+          "when": "resourceExtname == .ps1",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
     "@tobysmith568/prettier-config": "^1.0.0",
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^7.0.2",
-		"@types/node": "^13.11.0",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
     "@types/vscode": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
-		"eslint": "^6.8.0",
-		"glob": "^7.1.6",
-		"mocha": "^7.1.2",
-		"typescript": "^3.8.3",
-		"vscode-test": "^1.3.0"
-	},
-	"dependencies": {}
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.2",
+    "typescript": "^3.8.3",
+    "vsce": "^1.78.0",
+    "vscode-test": "^1.3.0"
+  },
+  "dependencies": {}
 }
