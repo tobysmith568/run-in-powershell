@@ -77,5 +77,5 @@ export async function run(location: string, admin: boolean = false): Promise<voi
 }
 
 export function escapeSpaces(value: string): string {
-	return value.replace(" ", "` ");
+  return value.replace(/ /g, "` ");
 }
