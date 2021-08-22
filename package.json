@@ -7,7 +7,7 @@
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tobysmith568/Run-in-Powershell"
+    "url": "https://github.com/tobysmith568/run-in-powershell"
   },
   "prettier": "@tobysmith568/prettier-config",
   "engines": {
