@@ -95,7 +95,7 @@
     "package": "vsce package"
   },
   "devDependencies": {
-    "@tobysmith568/prettier-config": "^1.0.0",
+    "@tobysmith568/prettier-config": "^1.1.0",
     "@types/glob": "^7.1.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.11.0",

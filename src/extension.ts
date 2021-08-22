@@ -1,6 +1,6 @@
-import * as vscode from "vscode";
-import * as util from "util";
 import { dirname } from "path";
+import * as util from "util";
+import * as vscode from "vscode";
 
 const exec = util.promisify(require("child_process").exec);
 const adminSection: string = "-Verb runAs";
