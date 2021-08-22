@@ -36,7 +36,7 @@
         "runInPowerShell.PowershellCoreLocation": {
           "type": "string",
           "default": "",
-          "description": "To use Powershell Core, enter the location of it's exe. Leave it empty to use standard Powershell."
+          "description": "To use Powershell Core, enter the location of it's executable. Leave it empty to use Powershell 1.0 (if it's available on your machine)."
         }
       }
     },
