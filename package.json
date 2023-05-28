@@ -86,13 +86,15 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
     "lint": "eslint src --ext ts",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "watch": "webpack --watch",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
     "test": "node ./out/test/runTest.js",
-    "package": "vsce package"
+    "watch-tests": "tsc -p . -w --outDir out"
   },
   "devDependencies": {
     "@tobysmith568/prettier-config": "^1.1.0",
