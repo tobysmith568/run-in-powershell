@@ -1,9 +1,10 @@
 import { dirname } from "path";
 import * as util from "util";
 import * as vscode from "vscode";
+import { exec } from "child_process";
+import { commandBuilder } from "./command-builder";
 
-const exec = util.promisify(require("child_process").exec);
-const adminSection: string = "-Verb runAs";
+const execAsync = util.promisify(exec);
 const powershellCoreSetting: string = "runInPowerShell.PowershellCoreLocation";
 const powershell1: string = "powershell.exe";
 
@@ -16,8 +17,9 @@ let outputChannel: vscode.OutputChannel;
 export function activate(context: vscode.ExtensionContext) {
   outputChannel = vscode.window.createOutputChannel("Run in Powershell");
 
-  let runInPSDisposable = vscode.commands.registerCommand("run-in-powershell.runInPS", async (data: ContextData) =>
-    runInPowershell(data, false)
+  let runInPSDisposable = vscode.commands.registerCommand(
+    "run-in-powershell.runInPS",
+    async (data: ContextData) => runInPowershell(data, false)
   );
 
   let runInPSAdminDisposable = vscode.commands.registerCommand(
@@ -31,7 +33,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {}
 
-export async function runInPowershell(contextData: ContextData, asAdmin: boolean): Promise<void> {
+export async function runInPowershell(
+  contextData: ContextData,
+  asAdmin: boolean
+): Promise<void> {
   const fileLocation: string | undefined = getFileLocation(contextData);
 
   if (fileLocation === undefined) {
@@ -52,30 +57,42 @@ export function getFileLocation(contextData?: ContextData): string | undefined {
   return location;
 }
 
-export async function run(location: string, admin: boolean = false): Promise<void> {
+export async function run(
+  location: string,
+  admin: boolean = false
+): Promise<void> {
   const workingDir: string = dirname(location);
-  let powerShellLocation: string | undefined = vscode.workspace.getConfiguration().get(powershellCoreSetting);
+  let powerShellLocation: string | undefined = vscode.workspace
+    .getConfiguration()
+    .get(powershellCoreSetting);
 
   if (powerShellLocation === undefined || powerShellLocation.length === 0) {
     powerShellLocation = powershell1;
   }
 
-  const command: string = `"${powerShellLocation}" -NoProfile -ExecutionPolicy Unrestricted -Command "& {Start-Process ${escapeSpaces(
-    powerShellLocation
-  )} -ArgumentList '-NoProfile -NoExit -ExecutionPolicy Unrestricted -Command cd ${escapeSpaces(
-    workingDir
-  )} ; & ${escapeSpaces(location)}""' ${admin ? adminSection : ""}}"`;
+  const command: string = commandBuilder(
+    powerShellLocation,
+    workingDir,
+    admin,
+    location
+  );
 
   outputChannel.appendLine("Running Powershell command: " + command);
 
   try {
-    await exec(command);
+    const { stdout, stderr } = await execAsync(command);
+
+    if (stderr) {
+      outputChannel.appendLine("ERR: " + stderr);
+    }
+
+    if (stdout) {
+      outputChannel.appendLine("OUT: " + stdout);
+    }
   } catch (err) {
     outputChannel.appendLine(JSON.stringify(err));
     vscode.window.showErrorMessage(JSON.stringify(err));
   }
-}
 
-export function escapeSpaces(value: string): string {
-  return value.replace(/ /g, "` ");
+  outputChannel.appendLine("Finished running Powershell command");
 }

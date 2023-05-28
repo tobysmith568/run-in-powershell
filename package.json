@@ -27,7 +27,7 @@
     "onCommand:run-in-powershell.runInPS",
     "onCommand:run-in-powershell.runInPSAdmin"
   ],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "icon": "icons/logo.png",
   "contributes": {
     "configuration": {
