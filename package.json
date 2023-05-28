@@ -96,18 +96,21 @@
   },
   "devDependencies": {
     "@tobysmith568/prettier-config": "^1.1.0",
-    "@types/glob": "^7.1.4",
-    "@types/mocha": "^7.0.2",
-    "@types/node": "^13.13.52",
-    "@types/vscode": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
-    "eslint": "^6.8.0",
-    "glob": "^7.1.7",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.78.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
     "mocha": "^10.2.0",
-    "typescript": "^3.9.10",
+    "typescript": "^5.0.4",
+    "ts-loader": "^9.4.2",
     "vsce": "^2.15.0",
-    "vscode-test": "^1.6.1"
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2"
   },
   "dependencies": {}
 }
