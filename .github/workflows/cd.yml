@@ -42,11 +42,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Download Build
-        uses: actions/download-artifact@v3
-        with:
-          name: Build
-          path: ./dist
+      - name: Log Version
+        run: Write-Host ${{ inputs.version }}
+
+      - name: Set Version
+        if: inputs.version != ''
+        run: npm --no-git-tag-version --allow-same-version version ${{ inputs.version }}
 
       - name: Publish
         run: npx vsce publish -p ${{ secrets.VSCE_PAT }}
