@@ -3,7 +3,7 @@
   "version": "0.2",
   "ignorePaths": ["out", "dist", "icons"],
   "dictionaryDefinitions": [],
-  "dictionaries": ["en-gb"],
+  "dictionaries": ["en-gb", "powershell"],
   "words": [],
   "ignoreWords": ["tobysmith", "nosources", "vscodeignore"],
   "import": [],
