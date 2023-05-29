@@ -114,7 +114,7 @@
     "@vscode/test-electron": "^2.3.0",
     "cspell": "^6.31.1",
     "eslint": "^8.39.0",
-    "glob": "^8.1.0",
+    "glob": "^10.0.0",
     "license-cop": "^1.1.0",
     "mocha": "^10.2.0",
     "ts-loader": "^9.4.2",
