@@ -49,7 +49,7 @@ jobs:
           path: ./dist
 
       - name: Publish
-        run: vsce publish -p ${{ secrets.VSCE_PAT }}
+        run: npx vsce publish -p ${{ secrets.VSCE_PAT }}
 
   create-release:
     name: Create GitHub Release
