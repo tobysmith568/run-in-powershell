@@ -98,6 +98,7 @@
     "watch-tests": "tsc -p . -w --outDir out"
   },
   "devDependencies": {
+    "@license-cop/permissive": "^1.1.0",
     "@tobysmith568/prettier-config": "^2.0.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
@@ -109,6 +110,7 @@
     "cspell": "^6.31.1",
     "eslint": "^8.39.0",
     "glob": "^8.1.0",
+    "license-cop": "^1.1.0",
     "mocha": "^10.2.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",

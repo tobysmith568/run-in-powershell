@@ -31,3 +31,9 @@ Icons by <a target="_blank" href="https://icons8.com">Icons8</a>.
 ## License
 
 Run-in-Powershell is licensed under the [ISC License](https://github.com/tobysmith568/run-in-powershell/blob/main/LICENSE).
+
+Run-in-Powershell is protected by [License Cop](https://license-cop.js.org).
+
+<a href="https://license-cop.js.org">
+  <img alt="Protected by: License-Cop" src="https://license-cop.js.org/shield.svg">
+</a>
