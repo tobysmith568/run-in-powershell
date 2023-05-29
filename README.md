@@ -1,4 +1,4 @@
-# Run-in-Powershell README
+# Run-in-Powershell
 
 This extension allows you to run `.ps1` files in a powershell terminal **external** to VS Code.
 
