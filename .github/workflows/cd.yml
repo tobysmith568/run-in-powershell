@@ -1,0 +1,76 @@
+name: CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: A SemVer for the release
+        default: ""
+        required: true
+        type: string
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  NODE_VERSION: 18
+
+jobs:
+  ci:
+    name: Run CI
+    uses: ./.github/workflows/ci.yml
+    secrets: inherit
+
+  publish:
+    name: Publish to the VS Code Marketplace
+
+    needs:
+      - ci
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Build
+        uses: actions/download-artifact@v3
+        with:
+          name: Build
+          path: ./dist
+
+      - name: Publish
+        run: vsce publish -p ${{ secrets.VSCE_PAT }}
+
+  create-release:
+    name: Create GitHub Release
+
+    needs:
+      - publish
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ inputs.version }}
+          generate_release_notes: true
+          body: |
+            # Release v${{ inputs.version }}
+
+            Download from [the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=tobysmith568.run-in-powershell)
+
+            Or run `code --install-extension tobysmith568.run-in-powershell` in a terminal
