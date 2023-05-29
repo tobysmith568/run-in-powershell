@@ -88,7 +88,7 @@
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src --ext ts --max-warnings 0",
     "watch": "webpack --watch",
     "pretest": "npm run compile-tests && npm run compile",
     "package": "webpack --mode production --devtool hidden-source-map",
@@ -97,7 +97,7 @@
     "watch-tests": "tsc -p . -w --outDir out"
   },
   "devDependencies": {
-    "@tobysmith568/prettier-config": "^1.1.0",
+    "@tobysmith568/prettier-config": "^2.0.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
@@ -108,11 +108,10 @@
     "eslint": "^8.39.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
-    "typescript": "^5.0.4",
     "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
     "vsce": "^2.15.0",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
-  },
-  "dependencies": {}
+  }
 }

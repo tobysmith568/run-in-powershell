@@ -6,12 +6,7 @@ export const commandBuilder = (
 ): string => {
   const outerFlags = "-NoProfile -ExecutionPolicy Unrestricted";
 
-  const innerCommand = buildInnerCommand(
-    powerShellLocation,
-    workingDir,
-    isAdmin,
-    location
-  );
+  const innerCommand = buildInnerCommand(powerShellLocation, workingDir, isAdmin, location);
 
   const command: string = `"${powerShellLocation}" ${outerFlags} -Command "${innerCommand}"`;
   return command;
@@ -33,5 +28,4 @@ const buildInnerCommand = (
   return command;
 };
 
-const escapeChars = (input: string): string =>
-  input.replace(/( |\(|\))/g, "`$1");
+const escapeChars = (input: string): string => input.replace(/( |\(|\))/g, "`$1");

@@ -33,10 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {}
 
-export async function runInPowershell(
-  contextData: ContextData,
-  asAdmin: boolean
-): Promise<void> {
+export async function runInPowershell(contextData: ContextData, asAdmin: boolean): Promise<void> {
   const fileLocation: string | undefined = getFileLocation(contextData);
 
   if (fileLocation === undefined) {
@@ -57,10 +54,7 @@ export function getFileLocation(contextData?: ContextData): string | undefined {
   return location;
 }
 
-export async function run(
-  location: string,
-  admin: boolean = false
-): Promise<void> {
+export async function run(location: string, admin: boolean = false): Promise<void> {
   const workingDir: string = dirname(location);
   let powerShellLocation: string | undefined = vscode.workspace
     .getConfiguration()
@@ -70,12 +64,7 @@ export async function run(
     powerShellLocation = powershell1;
   }
 
-  const command: string = commandBuilder(
-    powerShellLocation,
-    workingDir,
-    admin,
-    location
-  );
+  const command: string = commandBuilder(powerShellLocation, workingDir, admin, location);
 
   outputChannel.appendLine("Running Powershell command: " + command);
 

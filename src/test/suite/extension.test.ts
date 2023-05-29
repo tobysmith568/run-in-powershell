@@ -3,8 +3,7 @@ import { readFile } from "fs/promises";
 import { join } from "path";
 import * as vscode from "vscode";
 
-const sleep = (ms: number): Promise<void> =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
 const projectRoot = join(__dirname, "..", "..", "..");
 
@@ -22,10 +21,7 @@ suite("Extension Test Suite", () => {
     await sleep(1000);
     vscode.commands.executeCommand("workbench.action.closeActiveEditor");
 
-    const result = await readFile(
-      join(projectRoot, "test-output", "test1.txt"),
-      "utf8"
-    );
+    const result = await readFile(join(projectRoot, "test-output", "test1.txt"), "utf8");
 
     assert.ok(+result > fiveSecondsAgo);
   });
