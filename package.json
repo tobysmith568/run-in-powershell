@@ -37,7 +37,12 @@
         "runInPowerShell.PowershellCoreLocation": {
           "type": "string",
           "default": "",
-          "description": "To use Powershell Core, enter the location of it's executable. Leave it empty to use Powershell 1.0 (if it's available on your machine)."
+          "description": "To use Powershell Core, enter the location of it's executable. Leave it empty to use Powershell 5 (if it's available on your machine)."
+        },
+        "runInPowerShell.CloseWhenFinished": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable this if you want the external terminal to close when it's finished running the file."
         }
       }
     },

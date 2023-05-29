@@ -6,6 +6,7 @@ import { commandBuilder } from "./command-builder";
 
 const execAsync = util.promisify(exec);
 const powershellCoreSetting: string = "runInPowerShell.PowershellCoreLocation";
+const closeWhenFinishedSetting: string = "runInPowerShell.CloseWhenFinished";
 const powershell1: string = "powershell.exe";
 
 type ContextData = {
@@ -64,7 +65,16 @@ export async function run(location: string, admin: boolean = false): Promise<voi
     powerShellLocation = powershell1;
   }
 
-  const command: string = commandBuilder(powerShellLocation, workingDir, admin, location);
+  const shouldCloseWhenFinished =
+    vscode.workspace.getConfiguration().get<boolean>(closeWhenFinishedSetting) ?? false;
+
+  const command: string = commandBuilder(
+    powerShellLocation,
+    workingDir,
+    location,
+    admin,
+    shouldCloseWhenFinished
+  );
 
   outputChannel.appendLine("Running Powershell command: " + command);
 
