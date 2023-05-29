@@ -107,7 +107,7 @@
     "@tobysmith568/prettier-config": "^2.0.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
+    "@types/node": "18.x",
     "@types/vscode": "^1.78.0",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
