@@ -121,6 +121,6 @@
     "typescript": "^5.0.4",
     "vsce": "^2.15.0",
     "webpack": "^5.81.0",
-    "webpack-cli": "^5.0.2"
+    "webpack-cli": "^6.0.0"
   }
 }
