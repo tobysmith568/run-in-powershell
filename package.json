@@ -105,7 +105,7 @@
   "devDependencies": {
     "@license-cop/permissive": "^1.1.0",
     "@tobysmith568/prettier-config": "^2.0.0",
-    "@types/glob": "^8.1.0",
+    "@types/glob": "^9.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "18.x",
     "@types/vscode": "^1.0.0",
