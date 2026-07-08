@@ -118,7 +118,7 @@
     "license-cop": "^1.1.0",
     "mocha": "^10.2.0",
     "ts-loader": "^9.4.2",
-    "typescript": "^5.0.4",
+    "typescript": "^7.0.0",
     "vsce": "^2.15.0",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
