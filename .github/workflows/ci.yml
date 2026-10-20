@@ -11,7 +11,7 @@ on:
   workflow_call:
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 24
 
 defaults:
   run:
@@ -65,7 +65,7 @@ jobs:
         run: npm run package
 
       - name: Upload Build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: Build
           path: ./dist

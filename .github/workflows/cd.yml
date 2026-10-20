@@ -14,7 +14,7 @@ defaults:
     shell: pwsh
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 24
 
 jobs:
   ci:
