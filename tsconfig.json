@@ -5,7 +5,9 @@
     "lib": ["ES2020"],
     "sourceMap": true,
     "rootDir": "src",
-    "strict": true /* enable all strict type-checking options */
+    "strict": true /* enable all strict type-checking options */,
+    // license-cop 2.x depends on @types/emscripten, which needs DOM types this project doesn't load
+    "skipLibCheck": true
     /* Additional Checks */
     // "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
     // "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
